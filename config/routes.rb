@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
-  devise_for :admins, skip: [:registrations]#, controllers: (sessions: 'admins/sessions')
+  devise_for :admins, skip: [:registrations]
 
   namespace :admin do 
     root to: "home#index"
     resources :admins
   end
- 
-  root to: "admin/home#index"
+
+   root to: "user/timeline#index"
+
+  namespace :user do
+
+  end
 end
