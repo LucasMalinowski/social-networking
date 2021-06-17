@@ -15,14 +15,10 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-
   </head>
 
   <body style="height:100%">
-    <%# <%= content_for?(:content) ? yield(:content) : yield %> 
-
     <%= content_for?(:content) ? yield(:content) : yield %>
 
-        
   </body>
 </html>
