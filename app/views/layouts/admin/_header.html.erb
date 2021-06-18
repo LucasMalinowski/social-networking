@@ -2,13 +2,13 @@
   <div class="container">
     <ul class="navbar-nav">
       <li id="teste" class="nav-item <%= current_page?(admin_root_path)? "active" : "" %>">
-        <%= link_to "Home",root_path, class: "nav-link" %> 
+        <%= link_to "Home",admin_root_path, class: "nav-link" %> 
       </li>
       <li id="teste" class="nav-item <%= current_page?(admin_admins_path)? "active" : "" %>">
         <%= link_to "Administradores", admin_admins_path, class: "nav-link" %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" id="teste">Usuários</a>
+      <li class="nav-item <%= current_page?(admin_users_path)? "active" : "" %>">
+        <%= link_to "Usuarios", admin_users_path, class: "nav-link"%>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#" id="teste" >Posts</a>
