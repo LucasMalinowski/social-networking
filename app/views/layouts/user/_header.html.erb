@@ -2,22 +2,23 @@
   <div class="container" >
     <%= image_tag("logo.png", alt: "logo", class: 'navbar-brand', style: "height:40px;")%>
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="<%= current_page?(root_path)? "active" : "" %>">Timeline</a>
+      <li class="nav-item <%= current_page?(root_path)? "active" : "" %>">
+      <%= link_to "Timeline", root_path, class:"nav-link" %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= current_page?(root_path)? "active" : "" %>">Followers</a>
+      <li class="nav-item <%= current_page?(admin_users_path)? "active" : "" %>">
+      <%= link_to "Followers", admin_users_url, class:"nav-link" %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= current_page?(root_path)? "active" : "" %>">Following</a>
+      <li class="nav-item <%= current_page?(admin_users_path)? "active" : "" %>">
+      <%= link_to "Following", admin_users_url, class:"nav-link" %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= current_page?(root_path)? "active" : "" %>">Quem eu posso seguir</a>
+      <li class="nav-item <%= current_page?(admin_users_path)? "active" : "" %>">
+      <%= link_to "Quem eu posso seguir", admin_users_url, class:"nav-link" %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= current_page?(root_path)? "active" : "" %>">Meu perfil</a>
+      <li class="nav-item <%= current_page?(user_profile_path)? "active" : "" %>">
+      <%= link_to "Meu Perfil", user_profile_path, class:"nav-link" %>
       </li>
     </ul>
+
     <div class="nav-item d-flex">
       <ul class="navbar-nav">
         <li class="nav-item">
