@@ -7,8 +7,8 @@
       <th scope="col">Nome</th>
       <th scope="col">Email</th>
       <th scope="col">Telefone</th>
-      <th scope="col"></th>
-      <th scope="col"></th>      
+      <th scope="col">Seguindo</th>
+      <th scope="col">Seguidores</th>      
       
     </tr>
   </thead>
@@ -20,6 +20,8 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.phone %></td>
+        <td> &nbsp;  &nbsp;  &nbsp;  &nbsp; <%= user.following.count %></td>
+        <td> &nbsp;  &nbsp;  &nbsp;  &nbsp; <%= user.followers.count %></td>
         <td><%= link_to("Editar", edit_user_registration_path(user), class: "btn btn-warning btn-sm") %></td>
         <td><%= link_to("Deletar", admin_users_path(user), method: :delete, data: {confirm: "Deseja excluir o usuario?"},class: "btn btn-danger btn-sm") %></td>
       </tr>
