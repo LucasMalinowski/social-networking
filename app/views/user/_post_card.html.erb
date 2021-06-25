@@ -1,0 +1,19 @@
+<div class="card text-white bg-dark mb-3 mt-3">
+  <div class="card-header">
+    <%= link_to image_tag(post.user.avatar, class:"ui-w-100-forced rounded-circle", style:"width: 50px; height: 50px"), post.user == current_user ? user_profile_path : profile_path(post.user.name) %>
+    &nbsp; &nbsp;
+    <%= link_to post.user.name, post.user == current_user ? user_profile_path : profile_path(post.user.name)  , id:"teste" %>
+   
+  <% if post.user == current_user %>
+    <%= link_to user_post_path(post), method: :delete, class: "close text-white" do %>
+      <span aria-hidden="true">&times;</span>
+    <% end %>
+  <% end %>
+  
+  </div>
+
+    <div class="card-body">
+    <p class="card-text"><%= post.body %>    <br>
+    <small class="text-muted"> <%= l post.created_at, format: :short %></small></p>
+  </div>
+</div>
