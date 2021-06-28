@@ -23,6 +23,8 @@ Rails.application.routes.draw do
         post :like_toggle
       end
     end
+
+    resources :comments, only: [:create, :destroy]
     
     post 'follow/:id', to: "subscriptions#follow", as: :follow
     delete 'unfollow/:id', to: "subscriptions#unfollow", as: :unfollow

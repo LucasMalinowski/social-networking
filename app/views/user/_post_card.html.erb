@@ -1,4 +1,4 @@
-<div class="card text-white bg-dark mb-3 mt-3">
+<div class="card text-white bg-dark mb-3 mt-3" style="font-size: 17px">
   <div class="card-header">
     <%= link_to image_tag(post.user.avatar, class:"ui-w-100-forced rounded-circle", style:"width: 50px; height: 50px"), post.user == current_user ? user_profile_path : profile_path(post.user.name) %>
     &nbsp; &nbsp;
@@ -22,3 +22,28 @@
     <span class="ml-2"><%= post.likes.count %></span>
   </div>
 </div>
+
+<div id="post_<%= post.id %>_comments">
+<% post.comments.order(created_at: :desc).each do |comment|%>
+  <%= render('comment_card', comment: comment) %>
+<% end %>
+</div>
+
+<%= form_with model: [:user, @comment], class:"oi", data:{remote: true} do |f|%>
+  <%= f.hidden_field(:post_id, value: post.id) %>
+  <div class="form-group"  id="text">
+  <%= f.text_area :body, rows: 2, placeholder: "Escreva seu comentário...", class:"form-control", required: true%>
+  </div>
+  <div class="d-flex">
+    <button type="submit" class="btn btn-sm btn-primary ml-auto" onclick="limpar()">Enviar</button>
+  </div>
+<% end %>
+
+<!-- <script>
+  function limpar(){
+    var text = document.getElementById("text")
+
+    text.innerHTML = ""
+  }
+</script> -->
+

@@ -1,0 +1,20 @@
+<div id="comment_<%= comment.id %>">
+  <div class="card text-white bg-dark mb-3 mt-3" style="background-color: #868686!important; font-size:14px">
+    <div class="card-header">
+      <%= link_to image_tag(comment.user.avatar, class:"ui-w-100-forced rounded-circle", style:"width: 50px; height: 50px"), comment.user == current_user ? user_profile_path : profile_path(comment.user.name) %>
+      &nbsp; &nbsp;
+      <%= link_to comment.user.name, comment.user == current_user ? user_profile_path : profile_path(comment.user.name)  , id:"teste" %>
+    
+    <% if comment.user == current_user %>
+      <%= link_to user_comment_path(comment), method: :delete, class: "close text-white", remote: true do %>
+        <span aria-hidden="true">&times;</span>
+      <% end %>
+    <% end %>
+    </div>
+
+    <div class="card-body">
+      <p class="card-text"><%= comment.body %>    <br>
+      <small class="text-muted" style="color: rgb(0,0,0)!important"> <%= l comment.created_at, format: :short%></small></p>
+    </div>
+  </div>
+<div>

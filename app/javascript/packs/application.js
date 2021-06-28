@@ -12,5 +12,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-
 import "./like_toggle"
+
+import $ from 'jquery';
+global.$ = jQuery;
