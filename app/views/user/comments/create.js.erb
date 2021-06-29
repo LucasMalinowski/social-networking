@@ -1,3 +1,5 @@
 $("#post_<%= @post.id %>_comments").prepend('<%= j render "comment_card", comment: @comment %>');
 
+$("#post_<%= @post.id %>_comments_count").html("<%= @post.comments.count %> ");
+
 $("textarea").val("");
